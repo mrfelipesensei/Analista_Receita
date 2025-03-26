@@ -24,21 +24,30 @@ def analisar_despesas():
         categorias[despesa['categoria']] += despesa['valor']
     return dict(categorias)
 
-#Exemplo de uso
-fonte = input("Insira a fonte da Receita: ")
-valor = float(input("Insira o valor da Receita: "))
-adicionar_receita(valor, fonte)
+while True:
+    print('----Análise de Receita----')
+    print('Digite 1 para Adicionar Receita')
+    print('Digite 2 para Adicionar Despesa')
+    print('Digite 3 para Analisar a Receita')
+    
+    opcao = int(input('Digite a opção desejada: '))
 
-adicionar_despesa(350, 'Dívida Itaú')
-adicionar_despesa(200, 'Cartão Crédito')
-
-total_receitas, total_despesas, saldo = calcular_saldo()
-analise = analisar_despesas()
-
-print(f'Total de Receitas: R${total_receitas}')
-print(f'Total de Despesas: R${total_despesas}')
-print(f'Saldo Total: R$ {saldo}')
-
-print('Análise de Despesas por Categoria:')
-for categoria, valor in analise.items():
-    print(f'{categoria}: R${valor}')
+    if opcao == 1:
+        valor = float(input('Digite o Valor da Receita: '))
+        fonte = input('Digite a Fonte da Receita: ')
+        adicionar_receita(valor, fonte)
+    elif opcao == 2:
+        valor = float(input('Digite o Valor da Despesa: '))
+        categoria = input('Digite a Categoria da Despesa: ')
+        adicionar_despesa(valor, categoria)
+    elif opcao == 3:
+        total_receitas, total_despesas, saldo = calcular_saldo()
+        analise = analisar_despesas()
+        print(f'Total de Receitas: R${total_receitas}')
+        print(f'Total de Despesas: R${total_despesas}')
+        print(f'Saldo Total: R$ {saldo}')
+        print('Análise de Despesas por Categoria:')
+        for categoria, valor in analise.items():
+            print(f'{categoria}: R${valor}')
+    else:
+        print('Opção Inválida.Tente novamente')
