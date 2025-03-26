@@ -25,7 +25,10 @@ def analisar_despesas():
     return dict(categorias)
 
 #Exemplo de uso
-adicionar_receita(1500, 'Salário')
+fonte = input("Insira a fonte da Receita: ")
+valor = float(input("Insira o valor da Receita: "))
+adicionar_receita(valor, fonte)
+
 adicionar_despesa(350, 'Dívida Itaú')
 adicionar_despesa(200, 'Cartão Crédito')
 
