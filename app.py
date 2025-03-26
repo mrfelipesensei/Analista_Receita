@@ -14,7 +14,7 @@ def adicionar_receita(valor, fonte):
 def calcular_saldo():
     total_despesas = sum(despesa['valor'] for despesa in despesas)
     total_receitas = sum(receita['valor'] for receita in receitas)
-    return total_receitas - total_despesas
+    return total_receitas, total_despesas, total_receitas - total_despesas
 
 #Função para analisar as categorias de despesas
 def analisar_despesas():
