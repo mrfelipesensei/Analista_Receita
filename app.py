@@ -29,8 +29,12 @@ adicionar_receita(1500, 'Salário')
 adicionar_despesa(350, 'Dívida Itaú')
 adicionar_despesa(200, 'Cartão Crédito')
 
-saldo = calcular_saldo()
+total_receitas, total_despesas, saldo = calcular_saldo()
 analise = analisar_despesas()
+
+print(f'Total de Receitas: R${total_receitas}')
+print(f'Total de Despesas: R${total_despesas}')
+print(f'Saldo Total: R$ {saldo}')
 
 print('Análise de Despesas por Categoria:')
 for categoria, valor in analise.items():
